@@ -1,0 +1,24 @@
+let peanutCount = 0;
+let upgradeCost = 10;
+let peanutsPerClick = 1;
+
+function clickPeanut() {
+    peanutCount += peanutsPerClick;
+    updateDisplay();
+}
+
+function buyUpgrade() {
+    if (peanutCount >= upgradeCost) {
+        peanutCount -= upgradeCost;
+        peanutsPerClick++;
+        upgradeCost = Math.floor(upgradeCost * 1.5);
+        updateDisplay();
+    } else {
+        alert("Not enough peanuts!");
+    }
+}
+
+function updateDisplay() {
+    document.getElementById("peanutCount").textContent = peanutCount;
+    document.getElementById("upgradeCost").textContent = upgradeCost;
+}
